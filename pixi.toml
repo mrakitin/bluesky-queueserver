@@ -1,0 +1,57 @@
+[workspace]
+name = "bluesky-queueserver"
+version = "0.0.1"
+description = "Server for queueing plans"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "linux-64"]
+
+[dependencies]
+python = "3.12.*"
+pip = "*"
+
+[pypi-dependencies]
+bluesky = ">=1.7.0"
+ipykernel = "*"
+jsonschema = "*"
+jupyter-client = ">=7.4.2"
+jupyter-console = "*"
+numpydoc = "*"
+openpyxl = "*"
+ophyd = "*"
+packaging = "*"
+pydantic = "*"
+python-multipart = "*"
+pyyaml = "*"
+pyzmq = "*"
+redis = {version = "*", extras = ["hiredis"]}
+requests = "*"
+
+[feature.dev.pypi-dependencies]
+black = "!=25.11.0"
+coverage = "*"
+flake8 = "*"
+isort = "*"
+happi = ">=1.14.0"
+pre-commit = "*"
+pytest = "*"
+pytest-xprocess = "*"
+pytest-split = "*"
+py = "*"
+sphinx = "*"
+ipython = "*"
+matplotlib = "*"
+numpy = "*"
+intake = "*"
+scikit-image = "*"
+sphinx-rtd-theme = "*"
+fastapi = {version = "*", extras = ["all"]}
+pandas = "*"
+pyarrow = "*"
+h5py = "*"
+ophyd-async = "*"
+
+[environments]
+default = {features = ["dev"], solve-group = "default"}
+
+[tasks]
+install = "pip install --no-build-isolation -e ."

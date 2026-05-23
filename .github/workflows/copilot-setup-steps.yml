@@ -1,0 +1,41 @@
+name: "Copilot Setup Steps"
+
+on:
+    workflow_dispatch:
+    push:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
+    pull_request:
+        paths:
+            - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+    copilot-setup-steps:
+        runs-on: ubuntu-latest
+
+        permissions:
+            contents: read
+
+        services:
+            redis:
+                image: redis:latest
+                ports:
+                    - 6379:6379
+                options: >-
+                    --health-cmd "redis-cli ping"
+                    --health-interval 5s
+                    --health-timeout 3s
+                    --health-retries 5
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Install pixi
+              uses: prefix-dev/setup-pixi@v0.8.1
+              with:
+                  pixi-version: v0.68.1
+                  cache: true
+
+            - name: Install bluesky-queueserver (editable)
+              run: pixi run install
