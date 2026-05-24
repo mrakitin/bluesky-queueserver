@@ -83,3 +83,6 @@ target/
 
 # pytest-xprocess
 .xprocess/
+
+# Tiled local catalog and data (created by start-tiled-server task)
+tiled/

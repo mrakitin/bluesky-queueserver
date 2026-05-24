@@ -54,6 +54,8 @@ setup(
             "qserver-console = bluesky_queueserver.manager.qserver_cli:qserver_console",
             "qserver-qtconsole = bluesky_queueserver.manager.qserver_cli:qserver_qtconsole",
             "qserver-console-monitor = bluesky_queueserver.manager.output_streaming:qserver_console_monitor_cli",
+            "bluesky-mcp-server = bluesky_queueserver.mcp_server.cli:main",
+            "bluesky-tiled-mcp-server = bluesky_queueserver.tiled_mcp_server.cli:main",
         ],
     },
     include_package_data=True,
