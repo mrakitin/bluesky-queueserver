@@ -26,8 +26,6 @@ pyyaml = "*"
 pyzmq = "*"
 redis = {version = "*", extras = ["hiredis"]}
 requests = "*"
-fastmcp = "*"
-bluesky-queueserver-api = "*"
 bluesky-tiled-plugins = "*"
 
 [feature.dev.pypi-dependencies]
@@ -62,8 +60,3 @@ install = "pip install --no-build-isolation -e ."
 start-re-manager = "start-re-manager --zmq-publish-console ON --startup-dir bluesky_queueserver/profile_collection_sim"
 start-tiled-server = {cmd = "tiled catalog serve tiled/catalog.db --init --public --write ./tiled/data --write sqlite:///./tiled/tables.db --host 127.0.0.1 --port 8000 --api-key bluesky", env = {TILED_API_KEY = "bluesky"}}
 queue-monitor = "queue-monitor"
-mcp-server = "bluesky-mcp-server"
-mcp-inspector = {cmd = "fastmcp dev inspector bluesky_queueserver/mcp_server/app.py", env = {HOST = "127.0.0.1"}}
-mcp-chat = "python -m bluesky_queueserver.mcp_server.chat"
-tiled-mcp-server = "bluesky-tiled-mcp-server"
-tiled-mcp-inspector = {cmd = "fastmcp dev inspector bluesky_queueserver/tiled_mcp_server/app.py", env = {HOST = "127.0.0.1"}}
